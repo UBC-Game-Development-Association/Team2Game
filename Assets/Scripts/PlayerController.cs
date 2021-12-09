@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 2.0f;
     public Rigidbody2D rb;
+    public Animator anim;
 
     private Vector3 movement = new Vector3(0f, 0f, 0f);
     // Start is called before the first frame update
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        // Adjusts the condition "Horizontal" float value to play certain animations
+        anim.SetFloat("Horizontal", movement.x); 
         rb.velocity = new Vector2(movement.x, movement.y);
     }
 
